@@ -6,12 +6,11 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 14:25:52 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/01 16:52:15 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/02 14:30:51 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
 
 void	tracer_segment(t_struct *t, int	col)
 {

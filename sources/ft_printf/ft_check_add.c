@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   ft_check_add.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/02 14:47:33 by dberger          ###   ########.fr       */
+/*   Created: 2019/05/22 16:37:21 by ncoursol          #+#    #+#             */
+/*   Updated: 2019/05/27 15:18:37 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "ft_printf.h"
 
-#include "./sources/GNL/get_next_line.h"
-#include "./sources/ft_printf/ft_printf.h"
-#include "./sources/minilibx_macos/mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
-
-typedef struct	s_struct
+t_printf	ft_check_add(t_printf save, int *j, char c)
 {
-	void	*mlx;
-	void	*win;
-	void	*img;
-	int		ax;
-	int		ay;
-	int		bx;
-	int		by;
-	int		col;
-}				t_struct;
-
-void	tracer_segment(t_struct *t, int col);
-
-#endif
+	if (*j == BUFF_SIZE && (*j = 0) == 0)
+	{
+		save.ret = save.ret + BUFF_SIZE;
+		write(1, &save.buf, BUFF_SIZE);
+	}
+	save.buf[*j] = c;
+	*j += 1;
+	return (save);
+}

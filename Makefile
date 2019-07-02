@@ -6,7 +6,7 @@
 #    By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/30 19:03:50 by ncoursol          #+#    #+#              #
-#    Updated: 2019/07/02 09:56:29 by ncoursol         ###   ########.fr        #
+#    Updated: 2019/07/02 11:57:30 by dberger          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,10 @@ LIBF= libft.a
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
-LIB_DIR = ./includes/libft
-FT_PRINTF_DIR = ./includes/ft_printf
-MINILIBX_DIR = ./includes/minilibx_macos
-GNL_DIR = ./includes/GNL
+LIB_DIR = ./sources/libft
+FT_PRINTF_DIR = ./sources/ft_printf
+MINILIBX_DIR = ./sources/minilibx_macos
+GNL_DIR = ./sources/GNL
 
 SOURCES = main.c\
 		  tracer_segment.c\
