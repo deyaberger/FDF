@@ -6,7 +6,7 @@
 #    By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/30 19:03:50 by ncoursol          #+#    #+#              #
-#    Updated: 2019/07/01 15:57:40 by dberger          ###   ########.fr        #
+#    Updated: 2019/07/02 09:56:29 by ncoursol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ MINILIBX_DIR = ./includes/minilibx_macos
 GNL_DIR = ./includes/GNL
 
 SOURCES = main.c\
+		  tracer_segment.c\
 
 SOURCESG = get_next_line.c\
 
