@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/02 17:26:20 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/03 11:59:45 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ typedef struct	s_struct
 	int		col;
 }				t_struct;
 
-int		ft_check_fdf(char *buf);
-void	tracer_segment(t_struct *t, int col);
+int			ft_check_fdf(char *buf);
+void		tracer_segment(t_struct *t, int col);
+t_struct	ft_conv_map(t_struct *t, char *argv);
 
 #endif
