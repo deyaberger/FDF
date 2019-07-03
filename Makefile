@@ -6,7 +6,7 @@
 #    By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/30 19:03:50 by ncoursol          #+#    #+#              #
-#    Updated: 2019/07/02 11:57:30 by dberger          ###   ########.fr        #
+#    Updated: 2019/07/03 12:06:43 by dberger          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,8 @@ GNL_DIR = ./sources/GNL
 
 SOURCES = main.c\
 		  tracer_segment.c\
+		  ft_check_fdf.c\
+		  ft_conv_map.c\
 
 SOURCESG = get_next_line.c\
 
