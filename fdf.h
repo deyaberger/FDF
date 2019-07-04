@@ -6,20 +6,23 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/03 12:03:11 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/04 14:02:18 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-#include "sources/GNL/get_next_line.h"
-#include "sources/ft_printf/ft_printf.h"
-#include "sources/minilibx/mlx.h"
-#include <stdlib.h>
-#include <string.h>
-#include <math.h>
-#include <stdio.h>
+# include "sources/GNL/get_next_line.h"
+# include "sources/ft_printf/ft_printf.h"
+# include "sources/minilibx/mlx.h"
+# include <stdlib.h>
+# include <string.h>
+# include <math.h>
+# include <stdio.h>
+
+# define WIDTH 800
+# define HEIGHT 600
 
 typedef struct	s_struct
 {
