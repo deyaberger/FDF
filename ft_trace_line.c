@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 14:25:52 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/04 16:45:44 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/05 14:08:44 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	ft_trace_line(t_struct *t, char *my_img, int col)
 	dx = (dx < 0 ? -dx : dx);
 	dy = (dy < 0 ? -dy : dy);
 	ft_fill_pix(my_img, t->ax, t->ay, col);
-//	mlx_pixel_put(t->mlx, t->win, t->ax, t->ay, col);
 	i = 1;
 	if (dx > dy)
 	{
@@ -55,7 +54,6 @@ void	ft_trace_line(t_struct *t, char *my_img, int col)
 				t->ay += y;
 			}
 			ft_fill_pix(my_img, t->ax, t->ay, col);
-		//	mlx_pixel_put(t->mlx, t->win, t->ax, t->ay, col);
 			i++;
 		}
 	}
@@ -72,7 +70,6 @@ void	ft_trace_line(t_struct *t, char *my_img, int col)
 				t->ax += x;
 			}
 			ft_fill_pix(my_img, t->ax, t->ay, col);
-		//	mlx_pixel_put(t->mlx, t->win, t->ax, t->ay, col);
 			i++;
 		}
 	}

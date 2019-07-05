@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/04 17:20:40 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/05 14:18:46 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # define WIDTH 800
 # define HEIGHT 600
 # define COLOR 0xF0FF0000
+# define STARTX 100
+# define STARTY 50
+# define SPACE 30
 
 typedef struct	s_struct
 {
