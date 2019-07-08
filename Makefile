@@ -6,7 +6,7 @@
 #    By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/30 19:03:50 by ncoursol          #+#    #+#              #
-#    Updated: 2019/07/04 15:33:58 by dberger          ###   ########.fr        #
+#    Updated: 2019/07/08 11:01:26 by ncoursol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,11 @@ GNL_DIR = ./sources/GNL
 SOURCES = main.c\
 		  ft_trace_line.c\
 		  ft_check_fdf.c\
+		  ft_check_fdf2.c\
 		  ft_print_map.c\
-
-SOURCESG = get_next_line.c\
+		  ft_store.c
 
 OBJ = $(SOURCES:.c=.o)
-OBJG = $(SOURCESG:.c=.o)
 
 INCLUDE = fdf.h
 
@@ -50,9 +49,7 @@ $(NAME):
 	@cp $(FT_PRINTF_DIR)/libftprintf.a ./libftprintf.a
 	@(cd $(MINILIBX_DIR) && $(MAKE))
 	@cp $(MINILIBX_DIR)/libmlx.a ./libmlx.a
-	@$(CC) $(FLAGS) -c $(GNL_DIR)/$(SOURCESG)
-	@ar rc $(GNL) $(OBJG)
-	@$(CC) -o $(NAME) -I /usr/local/include $(SOURCES) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit $(MLX) $(GNL) $(PTF) $(LIBF)
+	@$(CC) -o $(NAME) -I /usr/local/include $(SOURCES) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit $(MLX) $(PTF) $(LIBF)
 	@echo "$(COMP_COLOR)   --- Compiled ! ---  $(NO_COLOR)"
 
 all: $(NAME)
@@ -62,7 +59,7 @@ clean:
 	@(cd $(LIB_DIR) && $(MAKE) $@)
 	@(cd $(FT_PRINTF_DIR) && $(MAKE) $@)
 	@(cd $(MINILIBX_DIR) && $(MAKE) $@)
-	@rm -Rf $(MLX) $(LIBF) $(PTF) $(GNL) $(OBJG)
+	@rm -Rf $(MLX) $(LIBF) $(PTF)
 	@echo "$(BIN2_COLOR)   --- Binary   deleted ---        $(NO_COLOR)"
 
 fclean: clean

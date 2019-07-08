@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 15:42:42 by dberger           #+#    #+#             */
-/*   Updated: 2019/06/14 15:09:05 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/05 11:57:05 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ char				*ft_strndup(const char *src, size_t k);
 int					ft_sizew(int i, const char *str, char c);
 int					ft_word(const char *str, char c);
 long				ft_sizenb(int n);
-char				*ft_strjoin_f(char *s1, char *s2, int i);
+char				*ft_strjoin_f(char const *s1, char const *s2, int i);
 int					ft_sqrt(int nb);
 long				ft_sizenb_l(long n);
 unsigned long		ft_sizenb_u(unsigned long n);
