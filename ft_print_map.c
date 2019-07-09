@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 16:54:53 by dberger           #+#    #+#             */
-/*   Updated: 2019/07/09 17:26:35 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/09 18:34:17 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ void	ft_print_map(t_struct *t, char *my_img, char **tab)
 {
 	int		i;
 	int		z;
-	int		c;
 	int		save;
 	int		sv;
 
 	i = 0;
-	c = 0;
-	while (tab[i] && c < 50)
+	while (tab[i])
 	{
 		t->bx = (((i - (t->col * (i / t->col))) + 1) * SPACE) + STARTX;
 		t->by = (((i / t->col) + 1) * SPACE) + STARTY;
@@ -32,9 +30,9 @@ void	ft_print_map(t_struct *t, char *my_img, char **tab)
 		z = ft_atoi(tab[i]);
 		if (z > 0)
 			z += 30;
-		printf("z=%d, i=%d\n", z, i);
-		t->by = t->by * cos(ANGLEX * (M_PI / 180)) + z * sin(ANGLEX * (M_PI / 180));
-		z = -(t->by) * (sin(ANGLEX * (M_PI / 180))) + z * cos(ANGLEX * (M_PI / 180));
+		t->by = t->by * cos(ANGLEX * (M_PI / 180)) - z * sin(ANGLEX * (M_PI / 180));
+		if (z > 0)
+			t->by = t->by - 14;
 		sv = i;
 		if ((i + 1) % (t->col) != 0)
 		{
@@ -47,9 +45,11 @@ void	ft_print_map(t_struct *t, char *my_img, char **tab)
 			save = t->ax;
 			t->ax = t->ax * cos((ANGLEZ * (M_PI / 180))) - t->ay * sin((ANGLEZ * (M_PI / 180)));
 			t->ay = save * sin((ANGLEZ * (M_PI / 180))) + t->ay * cos((ANGLEZ * (M_PI / 180)));
-			t->ay = t->ay * cos((ANGLEX * (M_PI / 180))) + z * cos(ANGLEX * (M_PI / 180));
-			z = -(t->ay) * (sin(ANGLEX * (M_PI / 180))) + z * cos(ANGLEX * (M_PI / 180));
-			ft_trace_line(t, my_img, 0xFF000000);
+			t->ay = t->ay * cos((ANGLEX * (M_PI / 180))) - z * cos(ANGLEX * (M_PI / 180));
+			if (z > 0)
+				ft_trace_line(t, my_img, 0x0000FF00);
+			else
+				ft_trace_line(t, my_img, 0xFF000000);
 		}
 		else
 			i++;
@@ -64,11 +64,12 @@ void	ft_print_map(t_struct *t, char *my_img, char **tab)
 			save = t->ax;
 			t->ax = t->ax * cos((ANGLEZ * (M_PI / 180))) - t->ay * sin((ANGLEZ * (M_PI / 180)));
 			t->ay = save * sin((ANGLEZ * (M_PI / 180))) + t->ay * cos((ANGLEZ * (M_PI / 180)));
-			t->ay = t->ay * cos((ANGLEX * (M_PI / 180))) + z * cos(ANGLEX * (M_PI / 180));
-			z = -(t->ay) * (sin(ANGLEX * (M_PI / 180))) + z * cos(ANGLEX * (M_PI / 180));
-			ft_trace_line(t, my_img, 0x00FF0000);
+			t->ay = t->ay * cos((ANGLEX * (M_PI / 180))) - z * cos(ANGLEX * (M_PI / 180));
+			if (z > 0)
+				ft_trace_line(t, my_img, 0x0000FF00);
+			else
+				ft_trace_line(t, my_img, 0x00FF0000);
 		}
 		i = sv + 1;
-		c++;
 	}
 }
