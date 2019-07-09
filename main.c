@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/08 15:15:38 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/09 18:37:59 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,10 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	t.mlx = mlx_init();
-	t.win = mlx_new_window(t.mlx, 800, 600, "FDF - Nico");
-	pt_img = mlx_new_image(t.mlx, 800, 600);
+	t.win = mlx_new_window(t.mlx, WIDTH, HEIGHT, "FDF - team de choc");
+	pt_img = mlx_new_image(t.mlx, WIDTH, HEIGHT);
 	my_img = mlx_get_data_addr(pt_img, &(bpp), &(s_l), &(endian));
+	ft_print_map(&t, my_img, tab);
 	mlx_put_image_to_window(t.mlx, t.win, pt_img, 0, 0);
 	mlx_hook(t.win, 2, 0, deal_key, &t);
 	mlx_loop(t.mlx);
