@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:28:28 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/08 14:52:46 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/10 18:11:35 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_read(char *buf, char *add, t_struct *t, int fd)
 			add = ft_strjoin_f(add, buf, 1);
 		}
 		b++;
-		while (add[i] != '\n')
+		while (add[i] != '\n' && add[i] != '\0')
 			i++;
 		add[i] = '\0';
 		t->col = (b == 0 ? ft_nu(add) : t->col);
