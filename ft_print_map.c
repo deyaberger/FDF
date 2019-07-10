@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 16:54:53 by dberger           #+#    #+#             */
-/*   Updated: 2019/07/10 15:31:37 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/10 15:35:26 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_trace_right(t_struct *t, char *my_img, char **tab, int i, int save)
 	i++;
 	t->ax = (((i - (t->col * (i / t->col))) + 1) * SPACE) + STARTX;
 	t->ay = (((i / t->col) + 1) * SPACE) + STARTY;
-	z = -ft_atoi(tab[i]);
+	z = ft_atoi(tab[i]);
 	if ((z > 0 && d < 0) || (z < 0 && d < 0))
 	{
 		d = -d;
@@ -50,7 +50,7 @@ void	ft_trace_down(t_struct *t, char *my_img, char **tab, int i, int save)
 	i = ((i - 1) + t->col);
 	t->ax = (((i - (t->col * (i / t->col))) + 1) * SPACE) + STARTX;
 	t->ay = (((i / t->col) + 1) * SPACE) + STARTY;
-	z = -ft_atoi(tab[i]);
+	z = ft_atoi(tab[i]);
 	if ((z > 0 && d < 0) || (z < 0 && d < 0))
 	{
 		d = -d;
@@ -84,7 +84,7 @@ void	ft_print_map(t_struct *t, char *my_img, char **tab)
 		save = t->bx;
 		t->bx = t->bx * cos(ANGLEZ * (M_PI / 180)) - t->by * sin(ANGLEZ * (M_PI / 180));
 		t->by = save * sin((ANGLEZ * (M_PI / 180))) + t->by * cos((ANGLEZ * (M_PI / 180)));
-		z = -ft_atoi(tab[i]);
+		z = ft_atoi(tab[i]);
 		t->by = (z != 0) ? p :  t->by * cos(ANGLEX * (M_PI / 180));
 		sv = i;
 		if ((i + 1) % (t->col) != 0)
