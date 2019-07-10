@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/08 12:27:49 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/10 14:46:01 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define WIDTH 800
-# define HEIGHT 600
-# define COLOR 0xF0FF0000
-# define STARTX 100
-# define STARTY 50
+# define WIDTH 1000
+# define HEIGHT 1000
+# define COLOR 0xF1ABDD00
+# define COLORUP 0xF3E02900
+# define STARTX 200
+# define STARTY 1
 # define SPACE 30
+# define ANGLEZ 30
+# define ANGLEX 60
 # define BUF 2047
+# define DEEP -30
 
 typedef struct	s_struct
 {
@@ -45,6 +49,6 @@ int			ft_check_fdf(char *buf, t_struct *t);
 int			ft_check_fdf2(char **argv, t_struct *t);
 char		**ft_store(char **tab, char **argv, t_struct *t);
 void		ft_trace_line(t_struct *t, char *my_img, int col);
-void		ft_print_map(t_struct *t, char *my_img, char *buf);
+void		ft_print_map(t_struct *t, char *my_img, char **tab);
 
 #endif
