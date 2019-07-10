@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/10 14:46:01 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/10 14:48:20 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define ANGLEZ 30
 # define ANGLEX 60
 # define BUF 2047
-# define DEEP -30
+# define DEEP 30
 
 typedef struct	s_struct
 {
