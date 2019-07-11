@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/10 20:42:20 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/11 15:46:35 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,9 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define WIDTH 1100
-# define HEIGHT 800
-# define COLOR 0xF1ABDD00
-# define COLORUP 0xF3E02900
-# define SPACE 30
-# define STARTX 200
-# define STARTY 1
-# define ANGLEZ 30
-# define ANGLEX 60
+# define WIDTH 1500
+# define HEIGHT 1100
 # define BUF 2047
-# define DEEP -30
 
 typedef struct	s_struct
 {
@@ -43,6 +35,16 @@ typedef struct	s_struct
 	int		by;
 	int		line;
 	int		col;
+	int		sp;
+	int		anglz;		
+	int		anglx;		
+	int		angly;		
+	int		startx;
+	int		starty;
+	int		deep;
+	int		clr;
+	int		clrup;
+	int		clrdown;
 }				t_struct;
 
 int			ft_check_fdf(char *buf, t_struct *t);
