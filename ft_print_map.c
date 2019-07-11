@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 16:54:53 by dberger           #+#    #+#             */
-/*   Updated: 2019/07/10 16:00:36 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/11 13:05:06 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	ft_print_map(t_struct *t, char *my_img, char **tab)
 			* cos((ANGLEZ * (M_PI / 180)));
 		t->by = (ft_atoi(tab[i]) != 0) ? p : t->by * cos(ANGLEX * (M_PI / 180));
 		sv = i;
-		if ((i + 1) % (t->col) != 0)
+		if ((i + 1) % (t->col) != 0 && tab[i + 1])
 			p = ft_trace_right(t, my_img, tab, i);
 		i++;
 		if (((i - 1) + t->col) <= (t->col * t->line) - 1)
