@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 14:25:52 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/05 14:08:44 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/10 15:12:12 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ void	ft_fill_pix(char *my_img, int x, int y, int color)
 {
 	int		i;
 	int		k;
+	int		h;
+	int		w;
 
-	i = (((HEIGHT - (HEIGHT - y)) * WIDTH) - (WIDTH - x)) * 4;
+	h = HEIGHT - (HEIGHT / 9);
+	w = WIDTH - ((WIDTH / 10) * 2);
+	i = (((h - (h - y)) * w) - (w - x)) * 4;
 	my_img[i + 0] = (((color + COLOR)) & 0xFF000000) >> 24;
 	my_img[i + 1] = (((color + COLOR)) & 0x00FF0000) >> 16;
 	my_img[i + 2] = (((color + COLOR)) & 0x0000FF00) >> 8;
