@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/11 11:57:59 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/11 15:48:12 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,20 @@ int		key_press(int key, t_struct *t)
 	else
 		ft_key_press(key, t, size, 1);
 	return (0);
+}
+
+void	ft_macros(t_struct *t)
+{
+	t->sp = 30;
+	t->anglz = 30;
+	t->anglz = 30;
+	t->angly = 30;
+	t->startx = 200;
+	t->starty = 10;
+	t->deep = 30;
+	t->clr = 0xF1ABDD00;
+	t->clrup = 0xF3E02900;
+	t->clrdown = 0x4EF32900;
 }
 
 int		main(int argc, char **argv)
@@ -64,6 +78,7 @@ int		main(int argc, char **argv)
 	pt_img = mlx_new_image(t.mlx, WIDTH - ((WIDTH / 10) * 2), HEIGHT - (HEIGHT / 9));
 	ft_menu(&t, tab, pt_img, argv);
 	my_img = mlx_get_data_addr(pt_img, &(bpp), &(s_l), &(endian));
+	ft_macros(&t);
 	ft_print_map(&t, my_img, tab);
 	mlx_put_image_to_window(t.mlx, t.win, pt_img, 0, HEIGHT / 9);
 	mlx_hook(t.win, 2, 0, key_press, &t);

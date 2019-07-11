@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 14:25:52 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/10 15:12:12 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/11 15:47:22 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	ft_fill_pix(char *my_img, int x, int y, int color)
 	h = HEIGHT - (HEIGHT / 9);
 	w = WIDTH - ((WIDTH / 10) * 2);
 	i = (((h - (h - y)) * w) - (w - x)) * 4;
-	my_img[i + 0] = (((color + COLOR)) & 0xFF000000) >> 24;
-	my_img[i + 1] = (((color + COLOR)) & 0x00FF0000) >> 16;
-	my_img[i + 2] = (((color + COLOR)) & 0x0000FF00) >> 8;
-	my_img[i + 3] = (((color + COLOR)) & 0x000000FF) >> 0;
+	my_img[i + 0] = (color & 0xFF000000) >> 24;
+	my_img[i + 1] = (color & 0x00FF0000) >> 16;
+	my_img[i + 2] = (color & 0x0000FF00) >> 8;
+	my_img[i + 3] = (color & 0x000000FF) >> 0;
 }
 
 void	ft_trace_line(t_struct *t, char *my_img, int col)
