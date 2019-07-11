@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:28:28 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/10 18:11:35 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/11 12:06:26 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		ft_nu(char *add)
 	i = 0;
 	j = 0;
 	if (add[i] == ' ')
-		while (add[i + 1] == ' ')
+		while (add[i + 1] == ' ' && add[i + 1] != '\0')
 			i++;
 	while (add[i])
 	{
@@ -36,7 +36,9 @@ int		ft_read(char *buf, char *add, t_struct *t, int fd)
 {
 	int		i;
 	int		b;
+	int		c;
 
+	c = 1;
 	b = -1;
 	while (t->ax != 0)
 	{
@@ -49,6 +51,8 @@ int		ft_read(char *buf, char *add, t_struct *t, int fd)
 		b++;
 		while (add[i] != '\n' && add[i] != '\0')
 			i++;
+		if (add[i] == '\n' && add[i + 1] == '\0')
+			c = 0;
 		add[i] = '\0';
 		t->col = (b == 0 ? ft_nu(add) : t->col);
 		if (t->ax != 0)
@@ -57,6 +61,8 @@ int		ft_read(char *buf, char *add, t_struct *t, int fd)
 		add = ft_strcpy(add, &add[i + 1]);
 	}
 	free(add);
+	if (c != 0)
+		b++;
 	return (b);
 }
 
