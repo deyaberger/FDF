@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/11 15:46:35 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/11 17:55:34 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct	s_struct
 	int		clr;
 	int		clrup;
 	int		clrdown;
+	int		savex;
 }				t_struct;
 
 int			ft_check_fdf(char *buf, t_struct *t);

@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/11 15:48:12 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/11 17:55:33 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ void	ft_macros(t_struct *t)
 {
 	t->sp = 30;
 	t->anglz = 30;
-	t->anglz = 30;
+	t->anglx = 30;
 	t->angly = 30;
-	t->startx = 200;
-	t->starty = 10;
+	t->startx = 300;
+	t->starty = 30;
 	t->deep = 30;
 	t->clr = 0xF1ABDD00;
 	t->clrup = 0xF3E02900;
