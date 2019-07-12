@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/11 17:55:33 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/12 14:18:01 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		key_press(int key, t_struct *t)
 	return (0);
 }
 
-void	ft_macros(t_struct *t)
+void	ft_macros(t_struct *t, char **tab)
 {
 	t->sp = 30;
 	t->anglz = 30;
@@ -48,21 +48,32 @@ void	ft_macros(t_struct *t)
 	t->clr = 0xF1ABDD00;
 	t->clrup = 0xF3E02900;
 	t->clrdown = 0x4EF32900;
+	t->tab = tab;
 }
 
-int		main(int argc, char **argv)
+void    ft_img(t_struct *t, char **tab, void *pt_img, char *my_img)
 {
-	t_struct	t;
-	void		*pt_img;
-	char		*my_img;
-	char		**tab;
-	int			bpp;
-	int			s_l;
-	int			endian;
-	int			i;
-	int			j;
+	int         bpp;
+	int         s_l;
+	int         endian;
+	int         i;
 
-	i = 0;
+	i = WIDTH - ((WIDTH / 10) * 2);
+	pt_img = mlx_new_image(t->mlx, i, HEIGHT - (HEIGHT / 9));
+	my_img = mlx_get_data_addr(pt_img, &(bpp), &(s_l), &(endian));
+	t->pt = pt_img;
+	t->my = my_img;
+	ft_print_map(t, my_img, tab);
+	mlx_put_image_to_window(t->mlx, t->win, pt_img, 0, HEIGHT / 9);
+}
+
+int     main(int argc, char **argv)
+{
+	t_struct    t;
+	void        *pt_img;
+	char        *my_img;
+	char        **tab;
+
 	if (argc != 2 || !ft_check_fdf2(argv, &t))
 	{
 		ft_printf(" fichier d'entree invalide.");
@@ -75,12 +86,9 @@ int		main(int argc, char **argv)
 	}
 	t.mlx = mlx_init();
 	t.win = mlx_new_window(t.mlx, WIDTH, HEIGHT, "FDF - DeyaNico & Co");
-	pt_img = mlx_new_image(t.mlx, WIDTH - ((WIDTH / 10) * 2), HEIGHT - (HEIGHT / 9));
 	ft_menu(&t, tab, pt_img, argv);
-	my_img = mlx_get_data_addr(pt_img, &(bpp), &(s_l), &(endian));
-	ft_macros(&t);
-	ft_print_map(&t, my_img, tab);
-	mlx_put_image_to_window(t.mlx, t.win, pt_img, 0, HEIGHT / 9);
+	ft_macros(&t, tab);
+	ft_img(&t, tab, pt_img, my_img);
 	mlx_hook(t.win, 2, 0, key_press, &t);
 	mlx_hook(t.win, 3, 0, key_release, &t);
 	mlx_loop(t.mlx);

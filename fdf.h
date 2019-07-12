@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/11 17:55:34 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/12 14:13:49 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ typedef struct	s_struct
 	int		clrup;
 	int		clrdown;
 	int		savex;
+	void	*pt;
+	char	*my;
+	char	**tab;
 }				t_struct;
 
 int			ft_check_fdf(char *buf, t_struct *t);
@@ -55,5 +58,6 @@ void		ft_trace_line(t_struct *t, char *my_img, int col);
 void		ft_print_map(t_struct *t, char *my_img, char **tab);
 void        ft_menu(t_struct *t, char **tab, char *pt_img, char **argv);
 void		ft_key_press(int key, t_struct *t, int size, int mode);
+void		ft_img(t_struct *t, char **tab, void *pt_img, char *my_img);
 
 #endif

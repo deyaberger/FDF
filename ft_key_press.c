@@ -6,11 +6,36 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 17:12:51 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/10 20:33:52 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/12 14:18:00 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void		ft_effect(int key, t_struct *t)
+{
+	if (key == 123)
+		t->anglx += 5;
+	else if (key == 124)
+		t->anglx -= 5;
+	else if (key == 126)
+		t->angly += 5;
+	else if (key == 125)
+		t->angly -= 5;
+	else if (key == 83)
+		t->anglz += 5;
+	else if (key == 84)
+		t->anglz -= 5;
+	else if (key == 78)
+		t->sp -= 1;
+	else if (key == 69)
+		t->sp += 1;
+	else if (key == 75)
+		t->deep += 3;
+	else if (key == 67)
+		t->deep -= 3;
+	ft_img(t, t->tab, t->pt, t->my);
+}
 
 void		ft_print_press(int x, int y, t_struct *t, char *b)
 {
@@ -64,7 +89,7 @@ void        ft_key_print(int key, t_struct *t, int size)
 		ft_print_press((HEIGHT / 6) * 4, size, t, "/");
 	else if (key == 67)
 		ft_print_press((HEIGHT / 6) * 4, size + 60, t, "*");
-//	ft_effect(key, t);
+	ft_effect(key, t);
 }
 
 void        ft_key_press(int key, t_struct *t, int size, int mode)
