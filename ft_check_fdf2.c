@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:28:28 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/11 12:06:26 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/12 14:03:31 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int		ft_check_fdf2(char **argv, t_struct *t)
 	if (!(add = (char*)malloc(sizeof(char) * (BUF + 1))))
 		return (0);
 	add[BUF] = '\0';
+	add[0] = '\0';
 	t->ax = 1;
 	if ((t->line = ft_read(buf, add, t, fd)) == -1)
 		return (0);
