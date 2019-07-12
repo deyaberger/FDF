@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:02:07 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/08 15:11:40 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/12 13:29:35 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ char	**ft_store3(char *add, int *i, char **tab, int *count)
 		*i += 1;
 		j++;
 	}
+	ft_printf("tab : [%d][%s]\n", *count, tab[*count]);
 	*count += 1;
 	return (tab);
 }
@@ -51,13 +52,14 @@ char	**ft_store2(char **tab, t_struct *t, char *add, int fd)
 		buf[t->ax] = '\0';
 		add = ft_strjoin_f(add, buf, 1);
 	}
-	while (add[i])
+	while (count != (t->col * t->line))
 	{
 		if (add[i] == '-' || (add[i] >= '0' && add[i] <= '9'))
 			ft_store3(add, &i, tab, &count);
 		if (add[i])
 			i++;
 	}
+	//ft_printf("tab : [%d][%s]\n", count, tab[count]);
 	free(add);
 	return (tab);
 }
@@ -71,6 +73,7 @@ char	**ft_store(char **tab, char **argv, t_struct *t)
 	if (BUF <= 0 || !(add = (char*)malloc(sizeof(char) * (BUF + 1))))
 		return (NULL);
 	add[BUF] = '\0';
+	add[0] = '\0';
 	if (!(tab = (char**)malloc(sizeof(char*) * ((t->col * t->line) + 1))))
 		return (NULL);
 	tab[(t->col * t->line)] = NULL;
