@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/12 14:18:01 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/12 14:54:16 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,17 @@ void    ft_img(t_struct *t, char **tab, void *pt_img, char *my_img)
 	int         s_l;
 	int         endian;
 	int         i;
+	int			h;
 
+	h =	HEIGHT - (HEIGHT / 9);
 	i = WIDTH - ((WIDTH / 10) * 2);
-	pt_img = mlx_new_image(t->mlx, i, HEIGHT - (HEIGHT / 9));
+	t->sp = (t->sp * t->col > i || t->sp * t->line > h) ? 1 : t->sp;
+	t->sp = (t->sp * t->col < -i || t->sp * t->line < -h) ? -1 : t->sp;
+	t->anglx = (t->anglx > 360 ) ? 360 : (t->anglx < -360) ? -360 : t->anglx;
+	t->angly = (t->angly > 360 ) ? 360 : (t->angly < -360) ? -360 : t->angly;
+	t->anglz = (t->anglz > 360 ) ? 360 : (t->anglz < -360) ? -360 : t->anglz;
+	t->deep = (t->deep > 100 ) ? 10 : (t->deep < -100) ? -10 : t->deep;
+	pt_img = mlx_new_image(t->mlx, i, h);
 	my_img = mlx_get_data_addr(pt_img, &(bpp), &(s_l), &(endian));
 	t->pt = pt_img;
 	t->my = my_img;
