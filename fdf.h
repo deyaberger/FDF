@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/12 16:14:02 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/13 18:12:39 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ typedef struct	s_struct
 	int		clrdown;
 	int		savex;
 	int		savey;
+	int		savecol;
+	int		saveline;
 	void	*pt;
 	char	*my;
 	char	**tab;
