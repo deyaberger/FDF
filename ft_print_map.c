@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 16:54:53 by dberger           #+#    #+#             */
-/*   Updated: 2019/07/12 16:18:58 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/13 12:41:28 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,8 @@ int		ft_place_pix(t_struct *t, int z)
 	int d;
 
 	d = t->deep;
-	if ((z > 0 && d < 0) || (z < 0 && d < 0))
-	{
-		d = -d;
-		z = -z;
-	}
-	if (z > 0 && d > 0)
+	if (z != 0)
 		z += d;
-	if (z < 0 && d > 0)
-		z -= d;
 	t->ax = t->ax * cos((t->anglz) * (M_PI / 180)) - t->ay
 			* sin(((t->anglz) * (M_PI / 180)));
 	t->ay = t->ax * sin((t->anglz) * (M_PI / 180)) + t->ay
@@ -51,7 +44,7 @@ void	ft_trace_right(t_struct *t, char *my_img, char **tab, int i)
 	i++;
 	t->ax = (((i - (t->col * (i / t->col))) + 1) * t->sp) + t->startx;
 	t->ay = (((i / t->col) + 1) * t->sp) + t->starty;
-	z = ft_atoi(tab[i]);
+	z = -ft_atoi(tab[i]);
 	z = ft_place_pix(t, z);
 	t->savey = t->ay;
 	t->savex = t->ax;
@@ -73,7 +66,7 @@ void	ft_trace_down(t_struct *t, char *my_img, char **tab, int i)
 	i = ((i - 1) + t->col);
 	t->ax = (((i - (t->col * (i / t->col))) + 1) * t->sp) + t->startx;
 	t->ay = (((i / t->col) + 1) * t->sp) + t->starty;
-	z = ft_atoi(tab[i]);
+	z = -ft_atoi(tab[i]);
 	z = ft_place_pix(t, z);
 	if (z > 0 && i > 0)
 		ft_trace_line(t, my_img, t->clrup);
