@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 17:12:51 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/12 14:18:00 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/13 15:22:49 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ void		ft_effect(int key, t_struct *t)
 	else if (key == 69)
 		t->sp += 1;
 	else if (key == 75)
-		t->deep += 3;
+		t->deep += 1;
 	else if (key == 67)
-		t->deep -= 3;
+		t->deep -= 1;
 	ft_img(t, t->tab, t->pt, t->my);
 }
 

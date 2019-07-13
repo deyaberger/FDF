@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/12 14:54:16 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/13 15:16:50 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int		key_press(int key, t_struct *t)
 void	ft_macros(t_struct *t, char **tab)
 {
 	t->sp = 30;
-	t->anglz = 30;
-	t->anglx = 30;
-	t->angly = 30;
+	t->anglz = 0;
+	t->anglx = 0;
+	t->angly = 0;
 	t->startx = 300;
 	t->starty = 30;
-	t->deep = 30;
+	t->deep = 1;
 	t->clr = 0xF1ABDD00;
 	t->clrup = 0xF3E02900;
 	t->clrdown = 0x4EF32900;
