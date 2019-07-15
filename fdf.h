@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/15 11:26:40 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/15 18:19:53 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define WIDTH 1500
+# define WIDTH 2000
 # define HEIGHT 1100
 # define BUF 2047
 
@@ -63,9 +63,9 @@ void        ft_menu(t_struct *t, char **tab, char *pt_img, char **argv);
 void		ft_key_press(int key, t_struct *t, int size, int mode);
 void		ft_img(t_struct *t, char **tab, void *pt_img, char *my_img);
 void		ft_menu4(t_struct *t);
-int			mouse_press(int button, int x, int y, t_struct *t);
 int			key_release(int key, t_struct *t);
 int			key_press(int key, t_struct *t);
 void		ft_erase(t_struct *t);
+void		ft_move(int key, t_struct *t);
 
 #endif

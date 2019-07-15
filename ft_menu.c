@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 18:27:36 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/14 15:19:27 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/15 18:20:03 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_buttons(t_struct *t, int y, char *b1, char *b2)
 	mlx_string_put(t->mlx, t->win, size + 15, y + 8, 0xBDBDBD, b1);
 	mlx_string_put(t->mlx, t->win, size + 75, y + 8, 0xBDBDBD, b2);
 }
-
 
 void	ft_menu4(t_struct *t)
 {
@@ -109,7 +108,7 @@ void	ft_menu2(t_struct *t)
 	{
 		mlx_pixel_put(t->mlx, t->win, WIDTH / 4, i, 0x6F6F6F);
 		mlx_pixel_put(t->mlx, t->win, WIDTH / 4 + 1, i, 0x6F6F6F);
-		i++;	
+		i++;
 	}
 }
 

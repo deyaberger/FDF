@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 17:12:51 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/14 15:53:07 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/15 18:20:00 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void		ft_print_press(int x, int y, t_struct *t, char *b)
 	mlx_string_put(t->mlx, t->win, y + 15, x + 8, 0x999999, b);
 }
 
-void        ft_print_release(int x, int y, t_struct *t, char *b)
+void		ft_print_release(int x, int y, t_struct *t, char *b)
 {
-	int     i;
-	int     j;
+	int		i;
+	int		j;
 
 	i = x;
 	while (i++ != x + 39)
@@ -68,7 +68,7 @@ void        ft_print_release(int x, int y, t_struct *t, char *b)
 	mlx_string_put(t->mlx, t->win, y + 15, x + 8, 0xBDBDBD, b);
 }
 
-void        ft_key_print(int key, t_struct *t, int size)
+void		ft_key_print(int key, t_struct *t, int size)
 {
 	if (key == 125)
 		ft_print_press((HEIGHT / 6), size, t, "v");
@@ -93,7 +93,7 @@ void        ft_key_print(int key, t_struct *t, int size)
 	ft_effect(key, t);
 }
 
-void        ft_key_press(int key, t_struct *t, int size, int mode)
+void		ft_key_press(int key, t_struct *t, int size, int mode)
 {
 	if (mode == 1)
 		ft_key_print(key, t, size);
