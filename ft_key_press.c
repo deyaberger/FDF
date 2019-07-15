@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 17:12:51 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/13 15:22:49 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/14 15:53:07 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void		ft_effect(int key, t_struct *t)
 {
-	if (key == 123)
-		t->anglx += 5;
-	else if (key == 124)
+	ft_erase(t);
+	if (key == 125)
 		t->anglx -= 5;
 	else if (key == 126)
-		t->angly += 5;
-	else if (key == 125)
+		t->anglx += 5;
+	else if (key == 124)
 		t->angly -= 5;
+	else if (key == 123)
+		t->angly += 5;
 	else if (key == 83)
 		t->anglz += 5;
 	else if (key == 84)
@@ -69,14 +70,14 @@ void        ft_print_release(int x, int y, t_struct *t, char *b)
 
 void        ft_key_print(int key, t_struct *t, int size)
 {
-	if (key == 123)
-		ft_print_press((HEIGHT / 6), size, t, "<");
-	else if (key == 124)
-		ft_print_press((HEIGHT / 6), size + 60, t, ">");
+	if (key == 125)
+		ft_print_press((HEIGHT / 6), size, t, "v");
 	else if (key == 126)
-		ft_print_press((HEIGHT / 6) * 2, size, t, "^");
-	else if (key == 125)
-		ft_print_press((HEIGHT / 6) * 2, size + 60, t, "v");
+		ft_print_press((HEIGHT / 6), size + 60, t, "^");
+	else if (key == 124)
+		ft_print_press((HEIGHT / 6) * 2, size + 60, t, ">");
+	else if (key == 123)
+		ft_print_press((HEIGHT / 6) * 2, size, t, "<");
 	else if (key == 83)
 		ft_print_press((HEIGHT / 6) * 3, size, t, "1");
 	else if (key == 84)
@@ -98,14 +99,14 @@ void        ft_key_press(int key, t_struct *t, int size, int mode)
 		ft_key_print(key, t, size);
 	else
 	{
-		if (key == 123)
-			ft_print_release((HEIGHT / 6), size, t, "<");
-		else if (key == 124)
-			ft_print_release((HEIGHT / 6), size + 60, t, ">");
+		if (key == 125)
+			ft_print_release((HEIGHT / 6), size, t, "v");
 		else if (key == 126)
-			ft_print_release((HEIGHT / 6) * 2, size, t, "^");
-		else if (key == 125)
-			ft_print_release((HEIGHT / 6) * 2, size + 60, t, "v");
+			ft_print_release((HEIGHT / 6), size + 60, t, "^");
+		else if (key == 124)
+			ft_print_release((HEIGHT / 6) * 2, size + 60, t, ">");
+		else if (key == 123)
+			ft_print_release((HEIGHT / 6) * 2, size, t, "<");
 		else if (key == 75)
 			ft_print_release((HEIGHT / 6) * 4, size, t, "/");
 		else if (key == 67)

@@ -6,45 +6,47 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/13 15:16:50 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/14 15:58:37 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		key_release(int key, t_struct *t)
+void	ft_erase(t_struct *t)
 {
-	int		size;
+	int     i;
+	int     j;
 
-	size = (WIDTH - ((WIDTH / 10) * 2) + 30);
-	if (key == 53)
-		exit(0);
-	else
-		ft_key_press(key, t, size, 0);
-	return (0);
-}
-
-int		key_press(int key, t_struct *t)
-{
-	int		size;
-
-	size = (WIDTH - ((WIDTH / 10) * 2) + 30);
-	if (key == 53)
-		exit(0);
-	else
-		ft_key_press(key, t, size, 1);
-	return (0);
+	j = HEIGHT / 6;
+	i = (WIDTH - ((WIDTH / 10) * 2) + 30) + 50;
+	mlx_string_put(t->mlx, t->win, i, j + 60, 0x232323, ft_itoa(t->anglx));
+	mlx_string_put(t->mlx, t->win, i, j * 2 + 60, 0x232323, ft_itoa(t->angly));
+	mlx_string_put(t->mlx, t->win, i, j * 3 + 60, 0x232323, ft_itoa(t->anglz));
+	mlx_string_put(t->mlx, t->win, i, j * 4 + 60, 0x232323, ft_itoa(t->deep));
+	mlx_string_put(t->mlx, t->win, i, j * 5 + 60, 0x232323, ft_itoa(t->sp));
+	i = (WIDTH - ((WIDTH / 10) * 2) + 30) + 49;
+	mlx_string_put(t->mlx, t->win, i, j + 60, 0x232323, ft_itoa(t->anglx));
+	mlx_string_put(t->mlx, t->win, i, j * 2 + 60, 0x232323, ft_itoa(t->angly));
+	mlx_string_put(t->mlx, t->win, i, j * 3 + 60, 0x232323, ft_itoa(t->anglz));
+	mlx_string_put(t->mlx, t->win, i, j * 4 + 60, 0x232323, ft_itoa(t->deep));
+	mlx_string_put(t->mlx, t->win, i, j * 5 + 60, 0x232323, ft_itoa(t->sp));
+	i = (WIDTH - ((WIDTH / 10) * 2) + 30) + 51;
+	mlx_string_put(t->mlx, t->win, i, j + 60, 0x232323, ft_itoa(t->anglx));
+	mlx_string_put(t->mlx, t->win, i, j * 2 + 60, 0x232323, ft_itoa(t->angly));
+	mlx_string_put(t->mlx, t->win, i, j * 3 + 60, 0x232323, ft_itoa(t->anglz));
+	mlx_string_put(t->mlx, t->win, i, j * 4 + 60, 0x232323, ft_itoa(t->deep));
+	mlx_string_put(t->mlx, t->win, i, j * 5 + 60, 0x232323, ft_itoa(t->sp));
 }
 
 void	ft_macros(t_struct *t, char **tab)
 {
 	t->sp = 30;
-	t->anglz = 0;
-	t->anglx = 0;
-	t->angly = 0;
+	t->anglz = 30;
+	t->anglx = 30;
+	t->angly = 30;
 	t->startx = 300;
 	t->starty = 30;
-	t->deep = 1;
+	t->deep = 30;
 	t->clr = 0xF1ABDD00;
 	t->clrup = 0xF3E02900;
 	t->clrdown = 0x4EF32900;
@@ -72,6 +74,7 @@ void    ft_img(t_struct *t, char **tab, void *pt_img, char *my_img)
 	t->pt = pt_img;
 	t->my = my_img;
 	ft_print_map(t, my_img, tab);
+	ft_menu4(t);
 	mlx_put_image_to_window(t->mlx, t->win, pt_img, 0, HEIGHT / 9);
 }
 
@@ -94,11 +97,12 @@ int     main(int argc, char **argv)
 	}
 	t.mlx = mlx_init();
 	t.win = mlx_new_window(t.mlx, WIDTH, HEIGHT, "FDF - DeyaNico & Co");
-	ft_menu(&t, tab, pt_img, argv);
 	ft_macros(&t, tab);
+	ft_menu(&t, tab, pt_img, argv);
 	ft_img(&t, tab, pt_img, my_img);
 	mlx_hook(t.win, 2, 0, key_press, &t);
 	mlx_hook(t.win, 3, 0, key_release, &t);
+	mlx_hook(t.win, 4, 0, mouse_press, &t);
 	mlx_loop(t.mlx);
 	return (0);
 }

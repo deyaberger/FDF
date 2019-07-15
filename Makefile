@@ -6,7 +6,7 @@
 #    By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/30 19:03:50 by ncoursol          #+#    #+#              #
-#    Updated: 2019/07/10 20:06:06 by ncoursol         ###   ########.fr        #
+#    Updated: 2019/07/14 15:03:20 by ncoursol         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ SOURCES = main.c\
 		  ft_print_map.c\
 		  ft_store.c\
 		  ft_menu.c\
-		  ft_key_press.c
+		  ft_key_press.c\
+		  ft_events.c
 
 OBJ = $(SOURCES:.c=.o)
 

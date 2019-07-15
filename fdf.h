@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/15 11:05:50 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/15 11:26:40 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,10 @@ void		ft_print_map(t_struct *t, char *my_img, char **tab);
 void        ft_menu(t_struct *t, char **tab, char *pt_img, char **argv);
 void		ft_key_press(int key, t_struct *t, int size, int mode);
 void		ft_img(t_struct *t, char **tab, void *pt_img, char *my_img);
+void		ft_menu4(t_struct *t);
+int			mouse_press(int button, int x, int y, t_struct *t);
+int			key_release(int key, t_struct *t);
+int			key_press(int key, t_struct *t);
+void		ft_erase(t_struct *t);
 
 #endif
