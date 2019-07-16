@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 16:54:53 by dberger           #+#    #+#             */
-/*   Updated: 2019/07/15 17:20:32 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/16 12:28:05 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,9 @@ int		ft_place_pix(t_struct *t, int z, int i)
 void	ft_trace_right(t_struct *t, char *my_img, char **tab, int i)
 {
 	int		z;
-	int		d;
 	int		p;
 	char	*color;
 
-	d = t->deep;
 	i++;
 	t->ax = (((i - (t->col * (i / t->col))) + 1) * t->sp) + t->startx;
 	t->ay = (((i / t->col) + 1) * t->sp) + t->starty;
@@ -60,10 +58,8 @@ void	ft_trace_right(t_struct *t, char *my_img, char **tab, int i)
 void	ft_trace_down(t_struct *t, char *my_img, char **tab, int i)
 {
 	int	z;
-	int d;
 	int save;
 
-	d = t->deep;
 	i = ((i - 1) + t->col);
 	t->ax = (((i - (t->col * (i / t->col))) + 1) * t->sp) + t->startx;
 	t->ay = (((i / t->col) + 1) * t->sp) + t->starty;
@@ -87,7 +83,7 @@ void	ft_bxby(t_struct *t, char **tab, int i, int mode)
 	int	z;
 
 	z = ft_atoi(tab[i]);
-	z = (z != 0) ? z * t->deep : z;
+	z = (z != 0) ? (z * t->deep) - (t->deep + z) : z;
 	if (mode == 1)
 	{
 		t->by = (z && (i % t->col) != 0) ? t->savey

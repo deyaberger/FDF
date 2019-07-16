@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/15 18:19:57 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/16 11:45:32 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,44 @@ void	ft_erase(t_struct *t)
 
 	j = HEIGHT / 6;
 	i = (WIDTH - ((WIDTH / 10) * 2) + 30) + 50;
-	mlx_string_put(t->mlx, t->win, i, j + 60, 0x232323, ft_itoa(t->anglx));
-	mlx_string_put(t->mlx, t->win, i, j * 2 + 60, 0x232323, ft_itoa(t->angly));
-	mlx_string_put(t->mlx, t->win, i, j * 3 + 60, 0x232323, ft_itoa(t->anglz));
-	mlx_string_put(t->mlx, t->win, i, j * 4 + 60, 0x232323, ft_itoa(t->deep));
-	mlx_string_put(t->mlx, t->win, i, j * 5 + 60, 0x232323, ft_itoa(t->sp));
+	mlx_string_put(t->mlx, t->win, i, j + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 2 + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 3 + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 4 + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 5 + 60, 0x232323, "0000");
 	i = (WIDTH - ((WIDTH / 10) * 2) + 30) + 49;
-	mlx_string_put(t->mlx, t->win, i, j + 60, 0x232323, ft_itoa(t->anglx));
-	mlx_string_put(t->mlx, t->win, i, j * 2 + 60, 0x232323, ft_itoa(t->angly));
-	mlx_string_put(t->mlx, t->win, i, j * 3 + 60, 0x232323, ft_itoa(t->anglz));
-	mlx_string_put(t->mlx, t->win, i, j * 4 + 60, 0x232323, ft_itoa(t->deep));
-	mlx_string_put(t->mlx, t->win, i, j * 5 + 60, 0x232323, ft_itoa(t->sp));
+	mlx_string_put(t->mlx, t->win, i, j + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 2 + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 3 + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 4 + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 5 + 60, 0x232323, "0000");
 	i = (WIDTH - ((WIDTH / 10) * 2) + 30) + 51;
-	mlx_string_put(t->mlx, t->win, i, j + 60, 0x232323, ft_itoa(t->anglx));
-	mlx_string_put(t->mlx, t->win, i, j * 2 + 60, 0x232323, ft_itoa(t->angly));
-	mlx_string_put(t->mlx, t->win, i, j * 3 + 60, 0x232323, ft_itoa(t->anglz));
-	mlx_string_put(t->mlx, t->win, i, j * 4 + 60, 0x232323, ft_itoa(t->deep));
-	mlx_string_put(t->mlx, t->win, i, j * 5 + 60, 0x232323, ft_itoa(t->sp));
+	mlx_string_put(t->mlx, t->win, i, j + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 2 + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 3 + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 4 + 60, 0x232323, "0000");
+	mlx_string_put(t->mlx, t->win, i, j * 5 + 60, 0x232323, "0000");
 }
 
 void	ft_macros(t_struct *t, char **tab)
 {
-	t->sp = 30;
+	int		w;
+	int		h;
+
+	h = HEIGHT - (HEIGHT / 9);
+	w = WIDTH - ((WIDTH / 10) * 2);
+	t->sp = 1;
+	if (t->col >= t->line)
+		while (sqrt(pow(t->col * t->sp, 2) + pow(t->line * t->sp, 2)) < w)
+			t->sp++;
+	if (t->col < t->line)
+		while (sqrt(pow(t->col * t->sp, 2) + pow(t->line * t->sp, 2)) < h)
+			t->sp++;
 	t->anglz = 30;
 	t->anglx = 30;
 	t->angly = 30;
-	t->startx = 300;
-	t->starty = 30;
+	t->startx = 480;
+	t->starty = -480;
 	t->deep = 1;
 	t->clr = 0xF1ABDD00;
 	t->clrup = 0xF3E02900;

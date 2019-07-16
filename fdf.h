@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/15 18:19:53 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/16 09:32:46 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-# define WIDTH 2000
-# define HEIGHT 1100
+# define WIDTH 2560
+# define HEIGHT 1395
 # define BUF 2047
-
+//2560 1395
 typedef struct	s_struct
 {
 	void	*mlx;

@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/08 11:02:07 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/12 13:29:35 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/12 15:23:23 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ char	**ft_store3(char *add, int *i, char **tab, int *count)
 		*i += 1;
 		j++;
 	}
-	ft_printf("tab : [%d][%s]\n", *count, tab[*count]);
 	*count += 1;
 	return (tab);
 }
@@ -59,7 +58,6 @@ char	**ft_store2(char **tab, t_struct *t, char *add, int fd)
 		if (add[i])
 			i++;
 	}
-	//ft_printf("tab : [%d][%s]\n", count, tab[count]);
 	free(add);
 	return (tab);
 }
