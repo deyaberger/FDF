@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/16 14:40:08 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/16 17:07:03 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,17 @@
 # define HEIGHT 1395
 # define BUF 2047
 
+# define CC 15
+# define CCUP 30
+# define WHITE 0xFFFFFF00
+# define RED 0x4747EB00
+# define BLUE 0xF9654400
+# define GREEN 0x079C0000
+# define BROWN 0x3683D100
+# define PURPLE 0xD1368D00
+# define PINK 0xE45CFF00
+# define TURQUOISE 0xBEBE4700
+
 typedef struct	s_struct
 {
 	void		*mlx;
@@ -42,9 +53,6 @@ typedef struct	s_struct
 	int			startx;
 	int			starty;
 	int			deep;
-	int			clr;
-	int			clrup;
-	int			clrdown;
 	int			savex;
 	int			savey;
 	int			savecol;

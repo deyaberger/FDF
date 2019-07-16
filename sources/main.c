@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/16 14:38:40 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/16 16:56:03 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,6 @@ void	ft_macros(t_struct *t, char **tab)
 	t->startx = 480;
 	t->starty = -480;
 	t->deep = 1;
-	t->clr = 0xFFF70000;
-	t->clrdown = 0xFF009700;
-	t->clrup = 0x8BF37400;
 	t->tab = tab;
 }
 

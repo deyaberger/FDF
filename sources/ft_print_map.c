@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 16:54:53 by dberger           #+#    #+#             */
-/*   Updated: 2019/07/16 17:02:33 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/16 17:00:56 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int		ft_place_pix(t_struct *t, int z, int i)
 {
-	int		d;
+	int d;
 
 	d = t->deep;
 	if (z != 0)
-		z = z * d;
+		z = (z > 200) ? (z * d) / 5 : z * d;
 	t->ax = t->ax * cos((t->anglz) * (M_PI / 180)) - t->ay
 		* sin(((t->anglz) * (M_PI / 180)));
 	t->ay = t->ax * sin((t->anglz) * (M_PI / 180)) + t->ay
@@ -39,6 +39,7 @@ void	ft_trace_right(t_struct *t, char *my_img, char **tab, int i)
 	int		z;
 	int		p;
 	char	*color;
+	int		colr;
 
 	i++;
 	t->ax = (((i - (t->col * (i / t->col))) + 1) * t->sp) + t->startx;
@@ -48,18 +49,21 @@ void	ft_trace_right(t_struct *t, char *my_img, char **tab, int i)
 	t->savey = t->ay;
 	t->savex = t->ax;
 	if (z > 0)
-		ft_trace_line(t, my_img, t->clrup);
+		colr = (z / t->deep) > CC ? BROWN : GREEN;
 	if (z < 0)
-		ft_trace_line(t, my_img, t->clrdown);
+		colr = (z / t->deep) > CC ? PURPLE : RED;
 	else if (z == 0)
-		ft_trace_line(t, my_img, t->clr);
+		colr = BLUE;
+	if (z != t->deep && (z / t->deep) > CCUP)
+		colr = WHITE;
+	ft_trace_line(t, my_img, colr);
 }
 
 void	ft_trace_down(t_struct *t, char *my_img, char **tab, int i)
 {
 	int		z;
 	int		save;
-	long	color;
+	int		color;
 
 	i = ((i - 1) + t->col);
 	t->ax = (((i - (t->col * (i / t->col))) + 1) * t->sp) + t->startx;
@@ -72,21 +76,19 @@ void	ft_trace_down(t_struct *t, char *my_img, char **tab, int i)
 		t->saveline = t->ay;
 	}
 	if (z > 0)
-		color = t->clrup;
-	if (z > 0 && (z / t->deep) > 3)
-		color = 0x00FFFF00;
+		color = (z / t->deep) > CC ? BROWN : GREEN;
 	if (z < 0)
-		color = t->clrdown;
-	if (z < 0 && (z / t->deep) > 3)
-		color = 0x8700FF00;
+		color = (z / t->deep) > CC ? PURPLE : RED;
 	else if (z == 0)
-		color = t->clr;
+		color = BLUE;
+	if (z != t->deep && (z / t->deep) > CCUP)
+		color = WHITE;
 	ft_trace_line(t, my_img, color);
 }
 
 void	ft_bxby(t_struct *t, char **tab, int i, int mode)
 {
-	int		z;
+	int	z;
 
 	z = ft_atoi(tab[i]);
 	z = (z != 0) ? (z * t->deep) - (t->deep + z) : z;
