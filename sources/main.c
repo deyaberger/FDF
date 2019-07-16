@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 15:47:18 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/16 18:48:03 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/16 19:59:05 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int		main(int argc, char **argv)
 
 	if (argc != 2 || !ft_check_fdf2(argv, &t))
 	{
-		ft_printf(" fichier d'entree invalide.");
+		ft_printf("Error : invalid entry.");
 		return (0);
 	}
 	if (!(tab = ft_store(tab, argv, &t)))

@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/16 17:07:03 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/16 17:09:09 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 # define HEIGHT 1395
 # define BUF 2047
 
-# define CC 15
-# define CCUP 30
+# define CC 2
+# define CCUP 4
 # define WHITE 0xFFFFFF00
 # define RED 0x4747EB00
 # define BLUE 0xF9654400
