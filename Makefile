@@ -6,7 +6,7 @@
 #    By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/30 19:03:50 by ncoursol          #+#    #+#              #
-#    Updated: 2019/07/14 15:03:20 by ncoursol         ###   ########.fr        #
+#    Updated: 2019/07/16 14:35:51 by dberger          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,24 +24,24 @@ LIBF= libft.a
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
-LIB_DIR = ./sources/libft
-FT_PRINTF_DIR = ./sources/ft_printf
-MINILIBX_DIR = ./sources/minilibx_macos
-GNL_DIR = ./sources/GNL
+LIB_DIR = ./libraries/libft
+FT_PRINTF_DIR = ./libraries/ft_printf
+MINILIBX_DIR = ./libraries/minilibx_macos
+GNL_DIR = ./libraries/GNL
 
-SOURCES = main.c\
-		  ft_trace_line.c\
-		  ft_check_fdf.c\
-		  ft_check_fdf2.c\
-		  ft_print_map.c\
-		  ft_store.c\
-		  ft_menu.c\
-		  ft_key_press.c\
-		  ft_events.c
+SOURCES = ./sources/main.c\
+		  ./sources/ft_trace_line.c\
+		  ./sources/ft_check_fdf.c\
+		  ./sources/ft_check_fdf2.c\
+		  ./sources/ft_print_map.c\
+		  ./sources/ft_store.c\
+		  ./sources/ft_menu.c\
+		  ./sources/ft_key_press.c\
+		  ./sources/ft_events.c
 
 OBJ = $(SOURCES:.c=.o)
 
-INCLUDE = fdf.h
+INCLUDE = ./includes/fdf.h
 
 .PHONY: all clean fclean re norme
 
