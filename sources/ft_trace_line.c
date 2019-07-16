@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 14:25:52 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/16 14:38:31 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/16 16:57:51 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,13 @@ void	ft_fill_pix(char *my_img, int x, int y, int color)
 	}
 }
 
-void	ft_trace_line(t_struct *t, char *my_img, int col)
+void	ft_case_two(t_struct *t, char *my_img, int col, int i)
 {
-	int		dx;
-	int		dy;
-	int		i;
+	int		cumul;
 	int		x;
 	int		y;
-	int		cumul;
+	int		dx;
+	int		dy;
 
 	dx = t->bx - t->ax;
 	dy = t->by - t->ay;
@@ -46,38 +45,64 @@ void	ft_trace_line(t_struct *t, char *my_img, int col)
 	y = (dy > 0 ? 1 : -1);
 	dx = (dx < 0 ? -dx : dx);
 	dy = (dy < 0 ? -dy : dy);
+	cumul = dy / 2;
+	while (i <= dy)
+	{
+		t->ay += y;
+		cumul += dx;
+		if (cumul >= dy)
+		{
+			cumul -= dy;
+			t->ax += x;
+		}
+		ft_fill_pix(my_img, t->ax, t->ay, col);
+		i++;
+	}
+}
+
+void	ft_case_one(t_struct *t, char *my_img, int col, int i)
+{
+	int		cumul;
+	int		x;
+	int		y;
+	int		dx;
+	int		dy;
+
+	dx = t->bx - t->ax;
+	dy = t->by - t->ay;
+	x = (dx > 0 ? 1 : -1);
+	y = (dy > 0 ? 1 : -1);
+	dx = (dx < 0 ? -dx : dx);
+	dy = (dy < 0 ? -dy : dy);
+	cumul = dx / 2;
+	while (i <= dx)
+	{
+		t->ax += x;
+		cumul += dy;
+		if (cumul >= dx)
+		{
+			cumul -= dx;
+			t->ay += y;
+		}
+		ft_fill_pix(my_img, t->ax, t->ay, col);
+		i++;
+	}
+}
+
+void	ft_trace_line(t_struct *t, char *my_img, int col)
+{
+	int		i;
+	int		dx;
+	int		dy;
+
+	dx = t->bx - t->ax;
+	dy = t->by - t->ay;
+	dx = (dx < 0 ? -dx : dx);
+	dy = (dy < 0 ? -dy : dy);
 	ft_fill_pix(my_img, t->ax, t->ay, col);
 	i = 1;
 	if (dx > dy)
-	{
-		cumul = dx / 2;
-		while (i <= dx)
-		{
-			t->ax += x;
-			cumul += dy;
-			if (cumul >= dx)
-			{
-				cumul -= dx;
-				t->ay += y;
-			}
-			ft_fill_pix(my_img, t->ax, t->ay, col);
-			i++;
-		}
-	}
+		ft_case_one(t, my_img, col, i);
 	else
-	{
-		cumul = dy / 2;
-		while (i <= dy)
-		{
-			t->ay += y;
-			cumul += dx;
-			if (cumul >= dy)
-			{
-				cumul -= dy;
-				t->ax += x;
-			}
-			ft_fill_pix(my_img, t->ax, t->ay, col);
-			i++;
-		}
-	}
+		ft_case_two(t, my_img, col, i);
 }
