@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 14:46:12 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/16 17:55:07 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/16 19:27:02 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,13 @@
 void	ft_move(int key, t_struct *t)
 {
 	if (key == 0)
-	{
-		t->startx -= 5;
-		t->starty += 1;
-	}
+		t->startx -= 20;
 	if (key == 1)
-	{
-		t->starty += 5;
-		t->startx += 1;
-	}
+		t->starty += 20;
 	if (key == 2)
-	{
-		t->startx += 5;
-		t->starty -= 2;
-	}
+		t->startx += 20;
 	if (key == 13)
-	{
-		t->starty -= 5;
-		t->startx -= 2;
-	}
+		t->starty -= 20;
 	ft_img(t, t->tab, t->pt, t->my);
 }
 
