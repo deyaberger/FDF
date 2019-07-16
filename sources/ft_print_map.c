@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 16:54:53 by dberger           #+#    #+#             */
-/*   Updated: 2019/07/16 14:38:12 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/16 17:02:33 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_place_pix(t_struct *t, int z, int i)
 {
-	int d;
+	int		d;
 
 	d = t->deep;
 	if (z != 0)
@@ -86,7 +86,7 @@ void	ft_trace_down(t_struct *t, char *my_img, char **tab, int i)
 
 void	ft_bxby(t_struct *t, char **tab, int i, int mode)
 {
-	int	z;
+	int		z;
 
 	z = ft_atoi(tab[i]);
 	z = (z != 0) ? (z * t->deep) - (t->deep + z) : z;
