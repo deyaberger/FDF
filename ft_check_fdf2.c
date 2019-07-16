@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:28:28 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/12 14:03:31 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/16 12:53:56 by ncoursol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,22 @@ int		ft_nu(char *add)
 	while (add[i])
 	{
 		if ((add[i] == ' ' && add[i + 1] != '\n' && add[i + 1] != '\0'
-		&& add[i + 1] != ' ') || (i == 0 && add[i] != ' '))
+					&& add[i + 1] != ' ') || (i == 0 && add[i] != ' '))
 			j++;
 		i++;
 	}
 	return (j);
+}
+
+char	*ft_inc(char *add, int *i, int *b, int *c)
+{
+	*b += 1;
+	while (add[*i] != '\n' && add[*i] != '\0')
+		*i += 1;
+	if (add[*i] == '\n' && add[*i + 1] == '\0')
+		*c = 0;
+	add[*i] = '\0';
+	return (add);
 }
 
 int		ft_read(char *buf, char *add, t_struct *t, int fd)
@@ -48,12 +59,7 @@ int		ft_read(char *buf, char *add, t_struct *t, int fd)
 			buf[t->ax] = '\0';
 			add = ft_strjoin_f(add, buf, 1);
 		}
-		b++;
-		while (add[i] != '\n' && add[i] != '\0')
-			i++;
-		if (add[i] == '\n' && add[i + 1] == '\0')
-			c = 0;
-		add[i] = '\0';
+		add = ft_inc(add, &i, &b, &c);
 		t->col = (b == 0 ? ft_nu(add) : t->col);
 		if (t->ax != 0)
 			if (!ft_check_fdf(add, t))
