@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 14:46:12 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/16 14:37:25 by dberger          ###   ########.fr       */
+/*   Updated: 2019/07/16 17:55:07 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ int		key_release(int key, t_struct *t)
 
 	size = (WIDTH - ((WIDTH / 10) * 2) + 30);
 	if (key == 53)
+	{
+		mlx_destroy_image(t->mlx, t->my);
+		mlx_destroy_window(t->mlx, t->win);
 		exit(0);
+	}
 	else
 		ft_key_press(key, t, size, 0);
 	return (0);
@@ -55,7 +59,11 @@ int		key_press(int key, t_struct *t)
 
 	size = (WIDTH - ((WIDTH / 10) * 2) + 30);
 	if (key == 53)
+	{
+		mlx_destroy_image(t->mlx, t->my);
+		mlx_destroy_window(t->mlx, t->win);
 		exit(0);
+	}
 	else if (key == 13 || key == 0 || key == 1 || key == 2)
 		ft_move(key, t);
 	else

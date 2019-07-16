@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 10:28:28 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/16 18:43:01 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/16 18:49:32 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int		ft_read(char *buf, char *add, t_struct *t, int fd)
 		}
 		add = ft_inc(add, &i, &b, &c);
 		t->col = (b == 0 ? ft_nu(add) : t->col);
-        if (t->ax != 0)
+		if (t->ax != 0)
 			if (!ft_check_fdf(add, t))
 				return (-1);
 		add = ft_strcpy(add, &add[i + 1]);
