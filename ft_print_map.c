@@ -6,7 +6,7 @@
 /*   By: dberger <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/02 16:54:53 by dberger           #+#    #+#             */
-/*   Updated: 2019/07/16 12:28:05 by ncoursol         ###   ########.fr       */
+/*   Updated: 2019/07/16 14:07:08 by dberger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,9 @@ void	ft_trace_right(t_struct *t, char *my_img, char **tab, int i)
 
 void	ft_trace_down(t_struct *t, char *my_img, char **tab, int i)
 {
-	int	z;
-	int save;
+	int		z;
+	int		save;
+	long	color;
 
 	i = ((i - 1) + t->col);
 	t->ax = (((i - (t->col * (i / t->col))) + 1) * t->sp) + t->startx;
@@ -71,11 +72,16 @@ void	ft_trace_down(t_struct *t, char *my_img, char **tab, int i)
 		t->saveline = t->ay;
 	}
 	if (z > 0)
-		ft_trace_line(t, my_img, t->clrup);
+		color = t->clrup;
+	if (z > 0 && (z / t->deep) > 3)
+		color = 0x00FFFF00;
 	if (z < 0)
-		ft_trace_line(t, my_img, t->clrdown);
+		color = t->clrdown;
+	if (z < 0 && (z / t->deep) > 3)
+		color = 0x8700FF00;
 	else if (z == 0)
-		ft_trace_line(t, my_img, t->clr);
+		color = t->clr;
+	ft_trace_line(t, my_img, color);
 }
 
 void	ft_bxby(t_struct *t, char **tab, int i, int mode)
