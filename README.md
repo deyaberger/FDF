@@ -39,3 +39,5 @@ other example with a map of Europe:
 ![](output/image2.png)
 
 ![](output/image3.png)
+
+Obtained mark for this project : 125/100
