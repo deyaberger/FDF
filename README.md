@@ -31,3 +31,5 @@ $> cat test_maps/42.fdf
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 
 ```
+output:
+https://github.com/deyaberger/FDF/blob/master/output/image1.png
