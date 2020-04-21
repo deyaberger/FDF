@@ -33,3 +33,9 @@ $> cat test_maps/42.fdf
 ```
 output:
 ![](output/image1.png)
+
+other example with a map of Europe:
+
+![](output/image2.png)
+
+![](output/image3.png)
