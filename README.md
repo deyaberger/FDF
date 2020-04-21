@@ -32,4 +32,4 @@ $> cat test_maps/42.fdf
 
 ```
 output:
-https://github.com/deyaberger/FDF/blob/master/output/image1.png
+![](output/image1.png)
