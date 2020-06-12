@@ -6,7 +6,7 @@
 /*   By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 18:57:35 by ncoursol          #+#    #+#             */
-/*   Updated: 2019/07/16 17:09:09 by dberger          ###   ########.fr       */
+/*   Updated: 2020/06/12 21:47:08 by deyaberge        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 # define FDF_H
 
 # include "../libraries/ft_printf/ft_printf.h"
-# include "../libraries/minilibx/mlx.h"
+# include "../libraries/minilibx_macos/mlx.h"
 # include <stdlib.h>
 # include <string.h>
 # include <math.h>
 # include <fcntl.h>
 # include <stdio.h>
 
-# define WIDTH 2560
-# define HEIGHT 1395
+# define WIDTH 1200
+# define HEIGHT 700
 # define BUF 2047
 
 # define CC 2

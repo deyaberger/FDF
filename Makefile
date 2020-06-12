@@ -6,7 +6,7 @@
 #    By: ncoursol <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/30 19:03:50 by ncoursol          #+#    #+#              #
-#    Updated: 2019/07/16 14:35:51 by dberger          ###   ########.fr        #
+#    Updated: 2020/06/12 21:49:28 by deyaberge        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,31 +45,34 @@ INCLUDE = ./includes/fdf.h
 
 .PHONY: all clean fclean re norme
 
-$(NAME): 
-	@(cd $(LIB_DIR) && $(MAKE))
-	@cp $(LIB_DIR)/libft.a ./libft.a
-	@(cd $(FT_PRINTF_DIR) && $(MAKE))
-	@cp $(FT_PRINTF_DIR)/libftprintf.a ./libftprintf.a
-	@(cd $(MINILIBX_DIR) && $(MAKE))
-	@cp $(MINILIBX_DIR)/libmlx.a ./libmlx.a
-	@$(CC) -o $(NAME) -I /usr/local/include $(SOURCES) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit $(MLX) $(PTF) $(LIBF)
-	@echo "$(COMP_COLOR)   --- Compiled ! ---  $(NO_COLOR)"
-
 all: $(NAME)
 
+LIB = $(FT_PRINTF_DIR)/$(PTF) \
+	$(LIB_DIR)/$(LIBF) \
+	$(MINILIBX_DIR)/$(MLX)
+
+$(LIB) :
+	$(MAKE) -C $(LIB_DIR)
+	$(MAKE) -C $(FT_PRINTF_DIR)
+	$(MAKE) -C $(MINILIBX_DIR)
+
+$(NAME): $(LIB) Makefile $(OBJ) $(INCLUDE)
+	$(CC) -o $(NAME) -I /usr/local/include $(SOURCES) -L /usr/local/lib/ -lmlx -framework OpenGL -framework AppKit $(LIB)
+	echo "$(COMP_COLOR)   --- FDF Compiled ! ---  $(NO_COLOR)"
+
 clean:
-	@rm -rf $(OBJ)
-	@(cd $(LIB_DIR) && $(MAKE) $@)
-	@(cd $(FT_PRINTF_DIR) && $(MAKE) $@)
-	@(cd $(MINILIBX_DIR) && $(MAKE) $@)
-	@rm -Rf $(MLX) $(LIBF) $(PTF)
-	@echo "$(BIN2_COLOR)   --- Binary   deleted ---        $(NO_COLOR)"
+	rm -rf $(OBJ)
+	$(MAKE) $@ -C $(LIB_DIR)
+	$(MAKE) $@ -C $(FT_PRINTF_DIR)
+	$(MAKE) $@ -C $(MINILIBX_DIR)
+	echo "$(BIN2_COLOR)   --- Binary deleted ---        $(NO_COLOR)"
 
 fclean: clean
-	@rm -rf $(NAME)
-	@(cd $(LIB_DIR) && $(MAKE) $@)
-	@(cd $(FT_PRINTF_DIR) && $(MAKE) $@)
-	@(cd $(MINILIBX_DIR) && $(MAKE) clean)
-	@echo "$(PROG_COLOR)   --- Program  deleted ---        $(NO_COLOR)"
+	rm -rf $(NAME)
+	$(MAKE) $@ -C $(LIB_DIR)
+	$(MAKE) $@ -C $(FT_PRINTF_DIR)
+	$(MAKE) clean -C $(MINILIBX_DIR)
+	echo "$(PROG_COLOR)   --- Program FDF deleted ---        $(NO_COLOR)"
 
 re: fclean all
+.SILENT: 
