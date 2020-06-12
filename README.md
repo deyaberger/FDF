@@ -40,4 +40,6 @@ other example with a map of Europe:
 
 ![](output/image3.png)
 
+![](output/visu.gif)
+
 Obtained mark for this project : 125/100
